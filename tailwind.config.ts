@@ -21,6 +21,10 @@ const config = {
       "md": "768px"
     },
     extend: {
+      fontFamily: {
+        "Outfit": ['Outfit'],
+        'DMSans': ['DM Sans']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

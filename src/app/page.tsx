@@ -1,9 +1,20 @@
-import Image from "next/image";
+"use client"
+import LandingPage from "@/components/LandingPage/page";
+import { useEffect } from "react";
+import { getPageData } from "./action";
+
 
 export default function Home() {
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getPageData("home");
+    }
+
+    getData();
+  }, [])
   return (
-   <div>
-    Hello
-  </div>
+    <div> 
+      <LandingPage />
+    </div>
   );
 }
