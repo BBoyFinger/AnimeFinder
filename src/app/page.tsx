@@ -1,20 +1,15 @@
 "use client"
 import LandingPage from "@/components/LandingPage/page";
-import { useEffect } from "react";
-import { getPageData } from "./action";
+
+import useFetchData from "./hooks/useFetchData";
 
 
 export default function Home() {
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getPageData("home");
-    }
-
-    getData();
-  }, [])
+  const {isLoading, banner} = useFetchData({url: "home", fetchBanner: true});
+  console.log(banner);
   return (
     <div> 
-      <LandingPage />
+      <LandingPage bannerData={banner} />
     </div>
   );
 }
