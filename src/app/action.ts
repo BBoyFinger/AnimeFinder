@@ -34,3 +34,15 @@ export async function getPageData(url: string) {
 
   return { bannerData };
 }
+
+export async function getProductByCategory(url: string){
+  const body = [
+    {
+      "attributeMarker": "price",
+      "conditionMarker": "mth",
+      "conditionValue": 1,
+    }
+  ]
+  const value = await Products.getProductsByPageUrl(url, body, "en_US")
+  console.log(value)
+}

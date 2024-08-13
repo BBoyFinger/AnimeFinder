@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
+import NavBar from "@/components/LandingPage/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Northwest Brother",
@@ -18,14 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-Outfit">
+      <body className="font-Outfit my-4 mx-12">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {/* <Header /> */}
+          <NavBar />
           {children}
         </ThemeProvider>
       </body>

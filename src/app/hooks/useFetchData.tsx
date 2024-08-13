@@ -1,9 +1,10 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import { getPageData } from "../action";
+import { getPageData, getProductByCategory } from "../action";
 import { BannerDataType } from "@/lib/interface";
 
-const useFetchData = ({ url = "", fetchBanner = false }) => {
+const useFetchData = ({ url = "", categoryUrl = "", fetchBanner = false }) => {
+  const [products, setProducts] = useState([]);
   const [banner, setBanner] = useState<BannerDataType>({
     title: "",
     image: "",
@@ -14,6 +15,9 @@ const useFetchData = ({ url = "", fetchBanner = false }) => {
     setIsLoading(true);
     try {
       const data = await getPageData(url);
+      if (categoryUrl != "") {
+        const products = await getProductByCategory("featured");
+      }
       if (fetchBanner) setBanner(data.bannerData);
     } catch (error) {
       console.log("Error fetching data", error);

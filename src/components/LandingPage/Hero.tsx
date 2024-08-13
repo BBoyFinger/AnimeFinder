@@ -11,14 +11,14 @@ const Hero: React.FC<HeroProps> = ({ bannerData }) => {
     <div className="font-DMSans relative flex items-center flex-col mt-12">
       <Image
         src={bannerData.image}
-        width={600}
-        height={400}
+        width={960}
+        height={960}
         alt="Hero banner"
-        className="w-full h-auto rounded-xl object-contain"
+        className="w-full rounded-xl object-contain"
         quality={100}
       />
-      <div className="absolute top-[40%] text-white flex flex-col items-center">
-        <p className="md:text-[6rem] text-[1.75rem] font-light text-center">
+      <div className="absolute right-[18%] top-[30%] text-white flex flex-col items-center">
+        <p className="md:text-[6rem] text-[1.75rem] font-light text-center ">
           {bannerData.title}
         </p>
         <Link href={"mens-clothing"}>
