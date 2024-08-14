@@ -1,6 +1,7 @@
 "use server";
 
 import { defineOneEntry } from "oneentry";
+import { IProductsEntity } from "oneentry/dist/products/productsInterfaces";
 
 const {
   Admins,
@@ -35,14 +36,27 @@ export async function getPageData(url: string) {
   return { bannerData };
 }
 
-export async function getProductByCategory(url: string){
+//helper function to parse Product
+const parseProductObject = (value: any) => {
+  const product: any = value.map((product: IProductsEntity) => ({
+    id: product.id,
+    src: product.attributeValues.images?.value[0].downloadLink,
+    title: product.attributeValues.title?.value,
+    price: product.attributeValues.price?.value,
+    quantity: product.attributeValues.quantity?.value,
+    description: product.attributeValues.description?.value,
+  }));
+  console.log(product);
+};
+export async function getProductByCategory(url: string) {
   const body = [
     {
-      "attributeMarker": "price",
-      "conditionMarker": "mth",
-      "conditionValue": 1,
-    }
-  ]
-  const value = await Products.getProductsByPageUrl(url, body, "en_US")
-  console.log(value)
+      attributeMarker: "price",
+      conditionMarker: "mth",
+      conditionValue: 1,
+    },
+  ];
+  const value = await Products.getProductsByPageUrl(url, body, "en_US");
+
+  const products = parseProductObject(value);
 }

@@ -14,13 +14,10 @@ const Hero: React.FC<HeroProps> = ({ bannerData }) => {
         width={960}
         height={960}
         alt="Hero banner"
-        className="w-full rounded-xl object-contain"
+        className="w-full h-auto rounded-xl object-contain"
         quality={100}
       />
-      <div className="absolute right-[18%] top-[30%] text-white flex flex-col items-center">
-        <p className="md:text-[6rem] text-[1.75rem] font-light text-center ">
-          {bannerData.title}
-        </p>
+      <div className="absolute top-[80%] text-white flex flex-col items-center">
         <Link href={"mens-clothing"}>
           <Button
             variant={"secondary"}

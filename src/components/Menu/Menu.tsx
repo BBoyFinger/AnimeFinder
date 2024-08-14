@@ -2,6 +2,7 @@ import { MenuItemType } from "@/lib/interface";
 import Link from "next/link";
 import React from "react";
 import Cart from "../ShoppingCart/Cart";
+import { ModeToggle } from "../ModeToggle";
 
 interface MenuProps {
   links: MenuItemType[];
